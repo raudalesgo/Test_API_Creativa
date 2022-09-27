@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+  
+{% block title %}Rentar una nueva pelicula{% endblock title %}
+  
+{% block content %}
+<div class="col-md-12">    
+    <form method="POST" class="post-form" action="/renta/">  
+    {% csrf_token %}  
+    <div class="container">  
+        <div class="col-12">  
+        <h3>Ver detalles</h3>  
+        </div>    
+     
+        <div class="mb-3"> 
+            <label>valor:</label>  
+            {{ rentas.cliente }}   
+        </div> 
+        <div class="mb-3"> 
+            <label>Fecha Alquiler:</label>  
+            {{ rentas.pelicula }}   
+        </div>  
+        <div class="mb-3"> 
+            <label>Fecha Devolucion:</label>  
+            {{ rentas.dia_renta }}   
+        </div>
+        <div class="mb-3"> 
+            <label>Fecha Devolucion:</label>  
+            {{ rentas.fecha_devolucion }}   
+        </div>
+        <div class="mb-3"> 
+            <button type="submit" class="btn btn-primary">aceptar</button>    
+        </div> 
+    </div>  
+    </form>  
+</div> 
+{% endblock content %} 
+
+
+

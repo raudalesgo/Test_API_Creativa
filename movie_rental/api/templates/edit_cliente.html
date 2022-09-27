@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+  
+{% block title %}Editar cliente{% endblock title %}
+  
+{% block content %}
+<div class="col-md-12">
+    <form method="POST" class="post-form" action="/updateCliente/{{cliente.id}}">  
+    {% csrf_token %}  
+    <div class="container">   
+        <div class="col-12">  
+            <h3>Actualizar Detalles</h3>  
+        </div> 
+        <div class="mb-3"> 
+            <label>Nombre:</label>  
+            <input type="text" class="form-control" name="nombre" id="id_nombre" required maxlength="100" value="{{ cliente.nombre}}"/>    
+        </div> 
+        <div class="mb-3"> 
+            <label>apellido:</label>  
+            <input type="text" class="form-control" name="apellido" id="id_apellido" required maxlength="100" value="{{ cliente.apellido }}" />  
+        </div> 
+        <div class="mb-3"> 
+            <label>fecha de Nacimiento:</label>  
+            <input type="text" class="form-control" name="fecha_nacimiento" id="id_fecha_nacimiento" required maxlength="254" value="{{ cliente.fecha_nacimiento }}" />  
+        </div> 
+        <div class="mb-3"> 
+            <label>Direccion:</label>  
+            <input type="text" class="form-control" name="direccion" id="id_direccion" required maxlength="15" value="{{ cliente.direccion }}" />  
+        </div>
+        <div class="mb-3"> 
+            <label>telefono:</label>  
+            <input type="text" class="form-control" name="telefono" id="id_telefono" required maxlength="15" value="{{ cliente.telefono }}" />  
+        </div> 
+        <div class="mb-3"> 
+            <label>correo:</label>  
+            <input type="text" class="form-control" name="correo" id="id_correo" required maxlength="15" value="{{ cliente.correo }}" />  
+        </div>
+        <div class="mb-3"> 
+            <button type="submit" class="btn btn-success btn-lg">Actualizar</button>  
+        </div> 
+    </div>  
+    </form>  
+{% endblock content %}   

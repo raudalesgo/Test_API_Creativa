@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+  
+{% block title %}Administracion de Clientes{% endblock title %}
+  
+{% block content %}
+ <div class="col-md-12">
+        </br>
+        <div class="form-group">
+            <span><a href="/addnewCliente" class="btn btn-success">Agregar Nuevo Cliente</a></span>
+            <span><a href="/" class="btn btn-primary">Rentar pelicula</a></span> 
+            <span><a href="/" class="btn btn-primary">Inventario de Peliculas</a></span>   
+        </div>
+        </br>  
+        <div class="table-responsive">
+        <table id="bootstrapdatatable" class="table table-striped table-bordered" width="100%">
+        <thead>
+            <th><input type="checkbox" id="checkall" /></th>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Direccion</th>
+            <th>fecha Nacimiento</th>
+            <th>telefono</th>
+            <th>correo</th>
+            <th>Editar</th>
+            <th>Eliminar</th>
+        </thead>
+        <tbody>
+        {% for cliente in cliente %}  
+            <tr>  
+            <td><input type="checkbox" class="checkthis" /></td>
+            <td>{{ cliente.id }}</td>  
+            <td>{{ cliente.nombre }}</td>  
+            <td>{{ cliente.apellido }}</td>  
+            <td>{{ cliente.direccion }}</td>  
+            <td>{{ cliente.fecha_nacimiento }}</td>  
+            <td>{{ cliente.telefono }}</td>  
+            <td>{{ cliente.correo }}</td>  
+            <td><a href="/editCliente/{{ cliente.id }}" class="btn btn-primary">Edit</a></td>
+            <td><a href="/destroyCliente/{{ cliente.id }}" class="btn btn-danger">Delete</a></td>  
+            </tr>  
+        {% endfor %} 
+        </tbody>
+        </table>
+        </div>
+    </div>
+{% endblock content %}

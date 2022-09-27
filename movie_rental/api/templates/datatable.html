@@ -1,0 +1,43 @@
+{% extends "datatable/base.html" %}
+
+{% block content %}
+    <table id="myStaticDatatable">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Cliente</th>
+            <th>Pelicula</th>
+            <th>Fecha de Devolucion</th>
+            <th>Fecha de Retorno</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for renta in rentas %}
+            <tr>
+                <td>{{ renta.id }}</td>
+                <td>
+                    {{ rentas.cliente }}
+                    <br>
+                    {{ pelicula.nombre }} {{ pelicula.descripcion }} 
+                </td>
+                <td>
+                    {{ cliente.nombre }}
+                    <br>{{ cliente.celular }}
+                    {{ cliente.email }}
+                </td>
+                <td>{{ pelicula.renta_por_dia }}</td>
+                <td>{{ pelicula.disponible }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+
+
+{% block extra_js %}
+    <script>
+        $(document).ready(function () {
+            $('#myStaticDatatable').DataTable();
+        });
+    </script>
+{% endblock %}

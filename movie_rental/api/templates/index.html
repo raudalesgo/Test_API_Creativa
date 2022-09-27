@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+  
+{% block title %}Peliculas{% endblock title %}
+  
+{% block content %}
+<div class="col-md-12">    
+    <form method="POST" class="post-form" action="/addnew">  
+    {% csrf_token %}  
+    <div class="container">  
+        <div class="col-12">  
+        <h3>Ver detalles</h3>  
+        </div>    
+     
+        <div class="mb-3"> 
+            <label>Nombre:</label>  
+            {{ form.nombre }}   
+        </div> 
+        <div class="mb-3"> 
+            <label>Sinopsis:</label>  
+            {{ form.sinopsis }}   
+        </div>  
+        <div class="mb-3"> 
+            <label>Categoria:</label>  
+            {{ form.categoria }}   
+        </div>
+        <div class="mb-3"> 
+            <button type="submit" class="btn btn-primary">aceptar</button>    
+        </div> 
+    </div>  
+    </form>  
+</div> 
+{% endblock content %} 
